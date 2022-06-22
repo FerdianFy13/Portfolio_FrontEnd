@@ -13,8 +13,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VsohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VsohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <!--  three js   -->
+    <script src="https://threejs.org/build/three.min.js"></script>
 
     <title>Portfolio | Ferdian Firmansyah</title>
 </head>
@@ -44,7 +47,9 @@
         <div class="bio animate__animated animate__shakeX">
             <h2 class="bio-title">About Me</h2>
             <p class="bio-text" style="text-align: justify;">
-                I am a creative person. I like to find alternative solutions to various existing problems. My creativity really helps in becoming a good leader because I can anticipate various problems and solve them with various solutions.
+                I am a creative person. I like to find alternative solutions to various existing problems. My creativity
+                really helps in becoming a good leader because I can anticipate various problems and solve them with
+                various solutions.
             </p>
         </div>
     </section>
@@ -56,13 +61,18 @@
     <section class="more-about">
         <h2>More About Me</h2>
         <p style="text-align: justify;">
-            Hello, this time I will introduce myself. My name is Ferdian Firmansyah, I was born on February 4, 2003. I come from Banyuwangi and study at the Banyuwangi State Polytechnic. My address is Lateng, Banyuwangi. I am currently studying in 4th semester majoring
+            Hello, this time I will introduce myself. My name is Ferdian Firmansyah, I was born on February 4, 2003. I
+            come from Banyuwangi and study at the Banyuwangi State Polytechnic. My address is Lateng, Banyuwangi. I am
+            currently studying in 4th semester majoring
             in Informatics Engineering Poliwangi.
         </p>
         <p style="text-align: justify;">
-            During my studies I was active academically and participated in various organizations, namely HMTI and Robotics UKM. By joining the organization, I developed my soft skills.
+            During my studies I was active academically and participated in various organizations, namely HMTI and
+            Robotics UKM. By joining the organization, I developed my soft skills.
         </p>
-        <p style="text-align: justify;">Never give up when life gives us a hundred reasons to be sad and cry, don't give up or complain about the state of our lives now. Because what we now consider to be lacking can be too much for other people who are less fortunate than us.
+        <p style="text-align: justify;">Never give up when life gives us a hundred reasons to be sad and cry, don't give
+            up or complain about the state of our lives now. Because what we now consider to be lacking can be too much
+            for other people who are less fortunate than us.
         </p>
     </section>
     <!-- end more about section -->
@@ -98,7 +108,8 @@
         <h2 class="educations-title">Some Of My Recent Education</h2>
         <div class="educations-container">
             <div class="education-container education-card">
-                <img src="assets/img/picture/Poliwangi.png" alt="expense-tracker" loading="lazy" class="education-pic" />
+                <img src="assets/img/picture/Poliwangi.png" alt="expense-tracker" loading="lazy"
+                    class="education-pic" />
                 <h3 class="education-title">Politeknik Negeri Banyuwangi</h3>
                 <p class="education-details">
                     Informatics Engin || 2020 - Now
@@ -106,7 +117,8 @@
                 <a href="https://poliwangi.ac.id/" target="_blank" class="education-link">Check School</a>
             </div>
             <div class="education-container education-card">
-                <img src="assets/img/picture/SMAN 1 Banyuwangi.png" alt="netflic-clone" loading="lazy" class="education-pic" />
+                <img src="assets/img/picture/SMAN 1 Banyuwangi.png" alt="netflic-clone" loading="lazy"
+                    class="education-pic" />
                 <h3 class="education-title">SMAN 1 Banyuwangi</h3>
                 <p class="education-details">
                     MIPA || 2018 - 2020
@@ -114,7 +126,8 @@
                 <a href="https://sman1bwi.sch.id/" target="_blank " class="education-link ">Check School</a>
             </div>
             <div class="education-container education-card">
-                <img src="assets/img/picture/SMPN 1 GIRI.png" alt="greeny-earth " loading="lazy " class="education-pic" />
+                <img src="assets/img/picture/SMPN 1 GIRI.png" alt="greeny-earth " loading="lazy "
+                    class="education-pic" />
                 <h3 class="education-tile ">SMPN 1 Giri</h3>
                 <p class="education-details">
                     General || 2015 - 2018
@@ -122,7 +135,8 @@
                 <a href="http://smpn1giri.siap-sekolah.com/" target="_blank " class="education-link ">Check School</a>
             </div>
             <div class="education-container education-card">
-                <img src="assets/img/picture/SDN 1 Lateng.jpg" alt="greeny-earth " loading="lazy " class="education-pic" />
+                <img src="assets/img/picture/SDN 1 Lateng.jpg" alt="greeny-earth " loading="lazy "
+                    class="education-pic" />
                 <h3 class="education-title">SDN 1 Lateng</h3>
                 <p class="education-details">
                     General || 2009 - 2015
@@ -132,6 +146,142 @@
         </div>
     </section>
     <!-- end education section -->
+
+    <canvas id="myCanvas"></canvas>
+    <script>
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        /*scene*/
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, width / height, 2, 300);
+        const canvas = document.getElementById('myCanvas');
+        const renderer = new THREE.WebGLRenderer({ antialias: true, canvas, alpha: true });
+
+        /*renderer*/
+        renderer.setSize(width, height);
+        document.body.appendChild(renderer.domElement);
+
+        /*camera*/
+        camera.position.z = 5;
+
+        /*cone geometry*/
+        const geo2 = new THREE.ConeGeometry(1, 2, 32);
+
+        /*texture color image*/
+        const ATexture = new THREE.TextureLoader().load("assets/img/picture/gradient1.jpg");
+        const BTexture = new THREE.TextureLoader().load("assets/img/picture/proyek_akhir.jpg");
+        const CTexture = new THREE.TextureLoader().load("assets/img/picture/ruang_sempro.jpg");
+        const DTexture = new THREE.TextureLoader().load("assets/img/picture/ruang_semhas.jpg");
+        /*end texture color image*/
+
+        /*array a collection of textures*/
+        const matArray = [
+            new THREE.MeshBasicMaterial({ map: ATexture }),
+            new THREE.MeshBasicMaterial({ map: BTexture }),
+            new THREE.MeshBasicMaterial({ map: CTexture }),
+            new THREE.MeshBasicMaterial({ map: ATexture }),
+            new THREE.MeshBasicMaterial({ map: BTexture }),
+            new THREE.MeshBasicMaterial({ map: CTexture }),
+        ];
+        /*array a collection of textures*/
+
+        /*material display cone geometry*/
+        let mesh2 = new THREE.Mesh(geo2, matArray);
+        mesh2.position.set(3, 0, 0);
+        scene.add(mesh2);
+        /*end material display cone geometry*/
+        /*end cone geometry*/
+
+        /*buffer geometry custom*/
+        const geo = new THREE.BufferGeometry();
+
+        /*triangular pyramid vertecs*/
+        let vertices = new Float32Array([
+            // vertices
+            -1.0, -1.0, 1.0, // 0
+            1.0, -1.0, 1.0, // 1
+            0.0, -1.0, -1.0, // 2
+            0.0, 1.0, 0.0 // 3
+        ]);
+        /*end triangular pyramid vertecs*/
+
+        /*triangular pyramid uvs*/
+        let uvs = new Float32Array([
+            0.0, 0.0,
+            1.0, 0.0,
+            1.0, 1.0,
+
+            1.0, 1.0,
+            0.0, 1.0,
+            0.0, 0.0,
+        ]);
+        /*end triangular pyramid uvs*/
+
+        /*view triangular pyramid*/
+        geo.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+        geo.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+        /*end triangular pyramid*/
+
+        /*triangular pyramid view display 3D*/
+        geo.setIndex([
+            1, 3, 2, //kiri
+            0, 3, 1, //kanan
+            0, 1, 2, //depan
+            0, 2, 3, //bawah
+        ]);
+        /*end triangular pyramid view display 3D*/
+
+        /*material display buffer geometry*/
+        const material = new THREE.MeshBasicMaterial({
+            // vertexColors: THREE.VertexColors,
+            map: DTexture,
+            wireframe: false,
+        });
+
+        let mesh = new THREE.Mesh(geo, material);
+        mesh.position.set(-3, 0, 0);
+        scene.add(mesh);
+        /*end material display buffer geometry*/
+        /*end buffer geometry*/
+
+        /*sphere geometry*/
+        const geo3 = new THREE.SphereGeometry(1, 32, 32);
+
+        /*material display sphere geometry*/
+        const materials = new THREE.MeshBasicMaterial({
+            map: BTexture,
+            wireframe: true
+        });
+
+        const mesh3 = new THREE.Mesh(geo3, materials);
+        mesh3.position.set(0, 0, 0);
+        scene.add(mesh3);
+        /*end material display sphere geometry*/
+        /*end sphere geometry*/
+
+        /*closure addEventListener*/
+        window.addEventListener('resize', function () {
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+        /*end closure addEventListener*/
+
+        /*update function animate for rotation 3d object*/
+        function update() {
+            mesh.rotation.y += 0.01;
+            mesh.rotation.x += 0.01;
+            mesh2.rotation.y += 0.01;
+            mesh2.rotation.x += 0.01;
+            mesh3.rotation.y += 0.01;
+            mesh3.rotation.x += 0.01;
+            requestAnimationFrame(update);
+            renderer.render(scene, camera);
+        }
+        update();
+/*update function animate for rotation 3d object*/
+    </script>
 
     <!-- Contact section -->
     <section class="contact" id="contact">
@@ -143,15 +293,18 @@
                 <form action="https://formspree.io/f/xyylnggw" method="POST">
                     <div class="form-control">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="sender-name" placeholder="Enter Your Name" class="input-field" required />
+                        <input type="text" id="name" name="sender-name" placeholder="Enter Your Name"
+                            class="input-field" required />
                     </div>
                     <div class="form-control ">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="sender-email" placeholder="Enter Your Email" class="input-field" required />
+                        <input type="email" id="email" name="sender-email" placeholder="Enter Your Email"
+                            class="input-field" required />
                     </div>
                     <div class="form-control ">
                         <label for="message">Message</label>
-                        <textarea id="message" cols="60" rows="4" placeholder="Enter Your Message " name="message " class="input-field" required></textarea>
+                        <textarea id="message" cols="60" rows="4" placeholder="Enter Your Message " name="message "
+                            class="input-field" required></textarea>
                     </div>
                     <input type="submit" value="Submit" id="submit-btn" class="submit-btn" />
                 </form>
@@ -164,10 +317,14 @@
 
     <!-- Social accounts - Fixed to the right -->
     <div class="socials">
-        <a href="https://twitter.com/ferdianfrmnsyah" target="_blank"><img src="assets/img/gift/icons8-twitter-circled.gif" alt="Twitter" loading="lazy" class="socicon" /></a>
-        <a href="https://www.instagram.com/ferdianfrmnsyah/" target="_blank"><img src="assets/img/gift/icons8-instagram.gif" alt="Instagram" loading="lazy" class="socicon" /></a>
-        <a href="https://www.linkedin.com/in/ferdian-firmansyah-6b87a1190/" target="_blank"><img src="assets/img/gift/icons8-linkedin-circled.gif" alt="Linkedin" loading="lazy" class="socicon" /></a>
-        <a href="https://github.com/FerdianFy13" target="_blank"><img src="assets/img/gift/icons8-github.gif" alt="Github" class="socicon" /></a>
+        <a href="https://twitter.com/ferdianfrmnsyah" target="_blank"><img
+                src="assets/img/gift/icons8-twitter-circled.gif" alt="Twitter" loading="lazy" class="socicon" /></a>
+        <a href="https://www.instagram.com/ferdianfrmnsyah/" target="_blank"><img
+                src="assets/img/gift/icons8-instagram.gif" alt="Instagram" loading="lazy" class="socicon" /></a>
+        <a href="https://www.linkedin.com/in/ferdian-firmansyah-6b87a1190/" target="_blank"><img
+                src="assets/img/gift/icons8-linkedin-circled.gif" alt="Linkedin" loading="lazy" class="socicon" /></a>
+        <a href="https://github.com/FerdianFy13" target="_blank"><img src="assets/img/gift/icons8-github.gif"
+                alt="Github" class="socicon" /></a>
     </div>
     <!-- end social accounts -->
 
@@ -187,10 +344,13 @@
 
     <!-- Website scripts -->
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/gift.js"></script>
 
     <!-- Ion icons scripts -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="node_modules/three/build/three.js"></script>
+    <script src="node_modules/three/lib/app.js"></script>
 </body>
 
 </html>
